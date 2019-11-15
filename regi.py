@@ -29,7 +29,7 @@ class Registration():
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['Name of the event'])
-                f.close()
+
         
         
         
@@ -83,7 +83,7 @@ class Registration():
             for row in reader:
                 if row[0]== event_load:
                     f_flag = f_flag + 1
-            d.close()
+
         if f_flag >0:
             os.chdir(event_load)
             self.flagloadname += 1
@@ -99,7 +99,7 @@ class Registration():
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow([event_name])
-                f.close()     
+                
             os.mkdir(event_name)
             os.chdir(event_name)
             #file of the guests 
@@ -107,7 +107,6 @@ class Registration():
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow(['Name','Surname'])
-                    f.close()
             self.file_menu.entryconfig(0,state = DISABLED)
             self.file_menu.entryconfig(1,state = DISABLED)
             self.flagloadname = 1
@@ -125,7 +124,7 @@ class Registration():
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow([str(self.textname.get(1.0,END)),str(self.textsurname.get(1.0,END))])
-                    f.close()
+
                 msg.showinfo("INFO","Name:"+str(self.textname.get(1.0,END))+"Surname:"+str(self.textsurname.get(1.0,END)))
         
                 
