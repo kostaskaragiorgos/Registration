@@ -9,5 +9,10 @@ This is a simple registration program, which is a part of a bigger problem.
 </ul>
 
 
-## HOW TO USE
-Fill the name and the surname text field and if you want you can upload a picture of yourself
+**HOW TO USE**
+<ul>
+  <li> Use the New Event Submenu from the File menu to create an event or use the Load Event to load an event  </li>
+  <li> Fill the name and the surname text field </li>
+  <li> If you want you can upload a picture of yourself using Upload a foto button</li>
+  <li> Use the Add button to add him to the event</li>
+</ul>
