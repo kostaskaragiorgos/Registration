@@ -16,3 +16,7 @@ This is a simple registration program, which is a part of a bigger problem.
   <li> If you want you can upload a picture of yourself using Upload a foto button</li>
   <li> Use the Add button to add him to the event</li>
 </ul>
+
+**Current Version**
+
+<p><img src ="reg.png" title = "Registration Version"/> </p>
