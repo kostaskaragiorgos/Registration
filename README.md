@@ -8,6 +8,11 @@ This is a simple registration program, which is a part of a bigger problem.
   <li> open cv (conda install -c conda-forge opencv) </li>
 </ul>
 
+## FILES
+<ul>
+  <li>regi.py(the main file)</li>
+  <li>Registration keybinds(keybinds file) </li>
+ </ul>
 
 **HOW TO USE**
 <ul>
