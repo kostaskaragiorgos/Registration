@@ -11,9 +11,11 @@ This is a simple registration program, which is a part of a bigger problem.
 </ul>
 
 ## FILES
+
 <ul>
-  <li>regi.py(the main file)</li>
-  <li>Registration keybinds(keybinds file) </li>
+  <li> regi.py(the main file)</li>
+  <li> Registration keybinds(keybinds file) </li>
+  <li> reg.png (version file) </li>
  </ul>
 
 **HOW TO USE**
