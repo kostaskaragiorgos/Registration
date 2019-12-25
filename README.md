@@ -5,7 +5,9 @@ This is a simple registration program, which is a part of a bigger problem.
 
 <ul>
   <li> csv (conda install -c anaconda csvkit) </li>
+  <li> second way to install csv ( pip install python-csv) </li>
   <li> open cv (conda install -c conda-forge opencv) </li>
+  <li> second way to install open cv ( pip install opencv-contrib-python-headless) </li>
 </ul>
 
 ## FILES
