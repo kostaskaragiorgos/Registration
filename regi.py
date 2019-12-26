@@ -18,10 +18,12 @@ class Registration():
         self.this_year = datetime.datetime.now()
         if os.path.exists(str(self.this_year.year)) == False:
             os.mkdir(str(self.this_year.year))
-        os.chdir(str(self.this_year.year))
+        else:
+            os.chdir(str(self.this_year.year))
         if os.path.exists(str(self.this_year.month)) == False:
             os.mkdir(str(self.this_year.month))
-        os.chdir(str(self.this_year.month))
+        else:
+            os.chdir(str(self.this_year.month))
         # creation
         
         #file of the events of the month
