@@ -54,7 +54,7 @@ class Registration():
         self.add = Button(self.master,text= "Add",command = self.addp)
         self.add.pack()
         
-        
+        #menu
         self.menu = Menu(self.master)
         
         self.file_menu = Menu(self.menu,tearoff = 0)
@@ -79,6 +79,9 @@ class Registration():
     
     def loadevent(self):
         event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
+        while event_load == None or (not event_load.strip()):
+            event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
+
         f_flag = 0
         with open('events.csv', 'r') as d:
             reader = csv.reader(d)
@@ -91,12 +94,16 @@ class Registration():
             self.flagloadname += 1
             self.file_menu.entryconfig(0,state = DISABLED)
             self.file_menu.entryconfig(1,state = DISABLED)
+            msg.showinfo("SUCCESS","EVENT SUCCESSFULLY LOADED")
         else:
             msg.showerror("Error","There is no such event try again")
             
             
     def newevent(self):
         event_name = sd.askstring("Name of the event","Enter the name of the event",parent = self.master)
+        while event_name == None or (not event_name.strip()):
+            event_name = sd.askstring("Name of the event","Enter the name of the event",parent = self.master)
+
         if os.path.exists(event_name) == False:
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
