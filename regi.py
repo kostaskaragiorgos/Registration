@@ -68,12 +68,14 @@ class Registration():
         self.file_menu = Menu(self.menu,tearoff = 0)
         self.file_menu.add_command(label = "New Event",command = self.newevent)
         self.file_menu.add_command(label = "Load Event",command = self.loadevent)
+        self.file_menu.add_command(label = "Add Member",command  = self.addp)
+        self.file_menu.add_command(label  ="Upload a foto",command  = self.upload)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
         self.menu.add_cascade(label = "File",menu=self.file_menu)
         
         self.edit_menu = Menu(self.menu,tearoff = 0)
-        self.edit_menu.add_command(label = "Clear Name", command = self.cnamef)
-        self.edit_menu.add_command(label = "Clear Surname", command = self.snamef)
+        self.edit_menu.add_command(label = "Clear Name", accelerator = 'Ctrl+N',command = self.cnamef)
+        self.edit_menu.add_command(label = "Clear Surname",accelerator = 'Ctrl+S', command = self.snamef)
         self.menu.add_cascade(label = "Edit", menu = self.edit_menu)
 
         self.about_menu = Menu(self.menu,tearoff = 0)
@@ -85,6 +87,8 @@ class Registration():
         self.menu.add_cascade(label="Help",menu=self.help_menu)
         
         self.master.config(menu=self.menu)
+        self.master.bind('<Control-n>',lambda event: self.cnamef())
+        self.master.bind('<Control-s>',lambda event: self.snamef())
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
