@@ -86,13 +86,16 @@ class Registration():
 
     
     def cnamef(self):
+        """ clears name text field"""
         self.textname.delete(1.0,END)
 
     def snamef(self):
+        """ clears surname text field"""
         self.textsurname.delete(1.0,END)
         
     
     def loadevent(self):
+        """ loads an event """
         f = 0
         file = open("events.csv")
         numline = len(file.readlines())
@@ -117,6 +120,7 @@ class Registration():
             
             
     def newevent(self):
+        """ new event """
         event_name = sd.askstring("Name of the event","Enter the name of the event",parent = self.master)
         while event_name == None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event","Enter the name of the event",parent = self.master)
@@ -141,6 +145,7 @@ class Registration():
             msg.showerror("Error","This event already exists")
             
     def addp(self):
+        """ adds an event member""" 
         if self.flagloadname == 0:
             msg.showerror("Error","Create an event or load one")
         else:
@@ -156,7 +161,8 @@ class Registration():
                 self.textsurname.delete(1.0,END)
         
                 
-    def upload(self):
+    def upload(self): 
+        """ uploads a foto of the member"""
         if self.flagloadname == 0:
             msg.showerror("Error","Create an event or load one")
         else:
