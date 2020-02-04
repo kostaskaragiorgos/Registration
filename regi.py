@@ -50,6 +50,12 @@ class Registration():
         self.textsurname = Text(self.master,height = 1 )
         self.textsurname.pack()
         
+        self.clearnamebutton = Button(self.master,text = "Clear Name")
+        self.clearnamebutton.pack()
+
+        self.clersurnamebutton = Button(self.master, text = "Clear Surname")
+        self.clersurnamebutton.pack()
+
         self.inmpfoto = Button(self.master,text= "Upload a foto",command = self.upload)
         self.inmpfoto.pack()
         
@@ -139,6 +145,8 @@ class Registration():
                     thewriter.writerow([str(self.textname.get(1.0,END)),str(self.textsurname.get(1.0,END))])
 
                 msg.showinfo("INFO","Name:"+str(self.textname.get(1.0,END))+"Surname:"+str(self.textsurname.get(1.0,END)))
+                self.textname.delete(1.0,END)
+                self.textsurname.delete(1.0,END)
         
                 
     def upload(self):
