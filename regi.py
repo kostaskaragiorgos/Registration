@@ -18,10 +18,12 @@ class Registration():
         self.this_year = datetime.datetime.now()
         if os.path.exists(str(self.this_year.year)) == False:
             os.mkdir(str(self.this_year.year))
+            os.chdir(str(self.this_year.year))
         else:
             os.chdir(str(self.this_year.year))
         if os.path.exists(str(self.this_year.month)) == False:
             os.mkdir(str(self.this_year.month))
+            os.chdir(str(self.this_year.month))
         else:
             os.chdir(str(self.this_year.month))
         # creation
@@ -78,25 +80,27 @@ class Registration():
         
     
     def loadevent(self):
-        event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
-        while event_load == None or (not event_load.strip()):
-            event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
-
-        f_flag = 0
-        with open('events.csv', 'r') as d:
-            reader = csv.reader(d)
-            for row in reader:
-                if row[0]== event_load:
-                    f_flag = f_flag + 1
-
-        if f_flag >0:
-            os.chdir(event_load)
-            self.flagloadname += 1
-            self.file_menu.entryconfig(0,state = DISABLED)
-            self.file_menu.entryconfig(1,state = DISABLED)
-            msg.showinfo("SUCCESS","EVENT SUCCESSFULLY LOADED")
+        f = 0
+        file = open("events.csv")
+        numline = len(file.readlines())
+        if numline == 2:
+            msg.showerror("Error", "No events to load")
         else:
-            msg.showerror("Error","There is no such event try again")
+            event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
+            while event_load == None or (not event_load.strip()):
+                event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
+            print(type(event_load))
+            for i in os.listdir():
+                if str(event_load) == i:
+                    f +=1
+            if f >0:
+                os.chdir(event_load)
+                self.flagloadname += 1
+                self.file_menu.entryconfig(0,state = DISABLED)
+                self.file_menu.entryconfig(1,state = DISABLED)
+                msg.showinfo("SUCCESS","EVENT SUCCESSFULLY LOADED")
+            else:
+                msg.showerror("Error","There is no such event try again")
             
             
     def newevent(self):
