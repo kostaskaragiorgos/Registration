@@ -68,8 +68,8 @@ class Registration():
         self.file_menu = Menu(self.menu,tearoff = 0)
         self.file_menu.add_command(label = "New Event",command = self.newevent)
         self.file_menu.add_command(label = "Load Event",command = self.loadevent)
-        self.file_menu.add_command(label = "Add Member",command  = self.addp)
-        self.file_menu.add_command(label  ="Upload a foto",command  = self.upload)
+        self.file_menu.add_command(label = "Add Member",accelerator = 'Alt+T',command  = self.addp)
+        self.file_menu.add_command(label  ="Upload a foto",accelerator = 'Alt+U',command  = self.upload)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
         self.menu.add_cascade(label = "File",menu=self.file_menu)
         
@@ -87,6 +87,8 @@ class Registration():
         self.menu.add_cascade(label="Help",menu=self.help_menu)
         
         self.master.config(menu=self.menu)
+        self.master.bind('<Alt-u>',lambda event: self.upload())
+        self.master.bind('<Alt-t>',lambda event: self.addp())
         self.master.bind('<Control-n>',lambda event: self.cnamef())
         self.master.bind('<Control-s>',lambda event: self.snamef())
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
