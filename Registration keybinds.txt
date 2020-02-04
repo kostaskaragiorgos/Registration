@@ -2,8 +2,15 @@ File menu
 =============
 New Event
 Load Event
+Add Member Alt + T
+Upload a foto Alt + U
 Exit Alt + F4
 =============
+Edit
+===================
+Clear name Ctrl + N
+Clear Surname Ctrl + S 
+======================
 About menu
 ==============
 About Ctrl + I
