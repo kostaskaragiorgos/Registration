@@ -50,10 +50,10 @@ class Registration():
         self.textsurname = Text(self.master,height = 1 )
         self.textsurname.pack()
         
-        self.clearnamebutton = Button(self.master,text = "Clear Name")
+        self.clearnamebutton = Button(self.master,text = "Clear Name",command = self.cnamef)
         self.clearnamebutton.pack()
 
-        self.clersurnamebutton = Button(self.master, text = "Clear Surname")
+        self.clersurnamebutton = Button(self.master, text = "Clear Surname",command = self.snamef)
         self.clersurnamebutton.pack()
 
         self.inmpfoto = Button(self.master,text= "Upload a foto",command = self.upload)
@@ -83,6 +83,13 @@ class Registration():
         self.master.bind('<Alt-F4>',lambda event: self.exitmenu())
         self.master.bind('<Control-F1>',lambda event: self.helpmenu())
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
+
+    
+    def cnamef(self):
+        self.textname.delete(1.0,END)
+
+    def snamef(self):
+        self.textsurname.delete(1.0,END)
         
     
     def loadevent(self):
