@@ -35,7 +35,11 @@ This is a simple registration program, which is a part of a bigger problem.
 <ul>
   <li> New Event </li>
   <li> Load Event </li>
+  <li> Add Member (Alt + T) </li>
+  <li> Upload a foto (Alt + U) </li>
   <li> Exit(Alt+F4) </li>
+  <li> Clear Name (Ctrl + N) </li>
+  <li> Clear Surname (Ctrl + S) </li>
   <li> About(Ctrl+I) </li>
   <li> Help(Ctrl+F1) </li>
 </ul>
