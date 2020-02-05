@@ -2,6 +2,7 @@ File menu
 =============
 New Event
 Load Event
+Close Event
 Add Member Alt + T
 Upload a foto Alt + U
 Exit Alt + F4

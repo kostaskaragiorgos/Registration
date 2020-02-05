@@ -100,9 +100,11 @@ class Registration():
     def close_event(self):
         os.chdir("..")
         self.flagloadname = 0
+        msg.showinfo("SUCCESS","EVENT SUCCESSFULLY CLOSED")
         self.file_menu.entryconfig(0,state = NORMAL)
         self.file_menu.entryconfig(1,state = NORMAL)
         self.file_menu.entryconfig(2,state = DISABLED)
+        
 
 
     
@@ -162,7 +164,7 @@ class Registration():
             self.file_menu.entryconfig(1,state = DISABLED)
             self.file_menu.entryconfig(2,state = NORMAL)
             self.flagloadname = 1
-            #disable the menu
+            msg.showinfo("SUCCESS","EVENT SUCCESSFULLY CREATED")
         else:
             msg.showerror("Error","This event already exists")
             
