@@ -68,6 +68,7 @@ class Registration():
         self.file_menu = Menu(self.menu,tearoff = 0)
         self.file_menu.add_command(label = "New Event",command = self.newevent)
         self.file_menu.add_command(label = "Load Event",command = self.loadevent)
+        self.file_menu.add_command(label = "Close Event",command = self.close_event,state = DISABLED)
         self.file_menu.add_command(label = "Add Member",accelerator = 'Alt+T',command  = self.addp)
         self.file_menu.add_command(label  ="Upload a foto",accelerator = 'Alt+U',command  = self.upload)
         self.file_menu.add_command(label="Exit",accelerator= 'Alt+F4',command = self.exitmenu)
@@ -96,6 +97,15 @@ class Registration():
         self.master.bind('<Control-i>',lambda event:self.aboutmenu())
 
     
+    def close_event(self):
+        os.chdir("..")
+        self.flagloadname = 0
+        self.file_menu.entryconfig(0,state = NORMAL)
+        self.file_menu.entryconfig(1,state = NORMAL)
+        self.file_menu.entryconfig(2,state = DISABLED)
+
+
+    
     def cnamef(self):
         """ clears name text field"""
         self.textname.delete(1.0,END)
@@ -116,7 +126,6 @@ class Registration():
             event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
             while event_load == None or (not event_load.strip()):
                 event_load = sd.askstring("Load an event","Enter the name of the event",parent = self.master)
-            print(type(event_load))
             for i in os.listdir():
                 if str(event_load) == i:
                     f +=1
@@ -125,6 +134,7 @@ class Registration():
                 self.flagloadname += 1
                 self.file_menu.entryconfig(0,state = DISABLED)
                 self.file_menu.entryconfig(1,state = DISABLED)
+                self.file_menu.entryconfig(2,state = NORMAL)
                 msg.showinfo("SUCCESS","EVENT SUCCESSFULLY LOADED")
             else:
                 msg.showerror("Error","There is no such event try again")
@@ -150,6 +160,7 @@ class Registration():
                     thewriter.writerow(['Name','Surname'])
             self.file_menu.entryconfig(0,state = DISABLED)
             self.file_menu.entryconfig(1,state = DISABLED)
+            self.file_menu.entryconfig(2,state = NORMAL)
             self.flagloadname = 1
             #disable the menu
         else:
