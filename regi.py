@@ -59,7 +59,7 @@ class Registration():
         self.inmpfoto = Button(self.master,text= "Upload a foto",command = self.upload)
         self.inmpfoto.pack()
         
-        self.add = Button(self.master,text= "Add",command = self.addp)
+        self.add = Button(self.master,text= "Add", command = self.addp)
         self.add.pack()
         
         #menu
