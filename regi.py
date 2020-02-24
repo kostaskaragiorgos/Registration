@@ -6,7 +6,8 @@ import csv
 import datetime
 import cv2
 class Registration():
-    def __init__(self,master):
+    """ registration class """
+    def __init__(self, master):
         self.master = master
         self.master.title("Registration")
         self.master.geometry("250x200")
@@ -29,56 +30,43 @@ class Registration():
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['Name of the event'])
-
         self.flagloadname = 0
-        self.amleb = Label(self.master, text = "Name")
+        self.amleb = Label(self.master, text="Name")
         self.amleb.pack()
-        
-        self.textname = Text(self.master, height = 1 )
+        self.textname = Text(self.master, height=1)
         self.textname.pack()
-        
-        self.surname = Label(self.master, text ="Surname")
+        self.surname = Label(self.master, text="Surname")
         self.surname.pack()
-        
-        self.textsurname = Text(self.master, height = 1 )
+        self.textsurname = Text(self.master, height=1)
         self.textsurname.pack()
-        
-        self.clearnamebutton = Button(self.master, text = "Clear Name", command = self.cnamef)
+        self.clearnamebutton = Button(self.master, text="Clear Name", command=self.cnamef)
         self.clearnamebutton.pack()
-
-        self.clersurnamebutton = Button(self.master, text = "Clear Surname", command = self.snamef)
+        self.clersurnamebutton = Button(self.master, text="Clear Surname", command=self.snamef)
         self.clersurnamebutton.pack()
-
-        self.inmpfoto = Button(self.master, text= "Upload a foto", command = self.upload)
+        self.inmpfoto = Button(self.master, text="Upload a foto", command=self.upload)
         self.inmpfoto.pack()
-        
-        self.add = Button(self.master, text= "Add", command = self.addp)
+        self.add = Button(self.master, text="Add", command=self.addp)
         self.add.pack()
-        
         #menu
         self.menu = Menu(self.master)
-        
-        self.file_menu = Menu(self.menu, tearoff = 0)
-        self.file_menu.add_command(label = "New Event", command = self.newevent)
-        self.file_menu.add_command(label = "Load Event", command = self.loadevent)
-        self.file_menu.add_command(label = "Close Event", command = self.close_event,state = DISABLED)
-        self.file_menu.add_command(label = "Add Member", accelerator = 'Alt+T', command  = self.addp)
-        self.file_menu.add_command(label  ="Upload a foto", accelerator = 'Alt+U', command  = self.upload)
-        self.file_menu.add_command(label="Exit", accelerator= 'Alt+F4', command = self.exitmenu)
-        self.menu.add_cascade(label = "File", menu=self.file_menu)
-        self.edit_menu = Menu(self.menu, tearoff = 0)
-        self.edit_menu.add_command(label = "Clear Name", accelerator = 'Ctrl+N', command = self.cnamef)
-        self.edit_menu.add_command(label = "Clear Surname", accelerator = 'Ctrl+S', command = self.snamef)
-        self.menu.add_cascade(label = "Edit", menu = self.edit_menu)
-
-        self.about_menu = Menu(self.menu, tearoff = 0)
-        self.about_menu.add_command(label = "About", accelerator= 'Ctrl+I', command=self.aboutmenu)
+        self.file_menu = Menu(self.menu, tearoff=0)
+        self.file_menu.add_command(label="New Event", command=self.newevent)
+        self.file_menu.add_command(label="Load Event", command=self.loadevent)
+        self.file_menu.add_command(label="Close Event", command=self.close_event, state=DISABLED)
+        self.file_menu.add_command(label="Add Member", accelerator='Alt+T', command=self.addp)
+        self.file_menu.add_command(label="Upload a foto", accelerator='Alt+U', command=self.upload)
+        self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
+        self.menu.add_cascade(label="File", menu=self.file_menu)
+        self.edit_menu = Menu(self.menu, tearoff=0)
+        self.edit_menu.add_command(label="Clear Name", accelerator='Ctrl+N', command=self.cnamef)
+        self.edit_menu.add_command(label="Clear Surname", accelerator='Ctrl+S', command=self.snamef)
+        self.menu.add_cascade(label="Edit", menu=self.edit_menu)
+        self.about_menu = Menu(self.menu, tearoff=0)
+        self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=self.aboutmenu)
         self.menu.add_cascade(label="About", menu=self.about_menu)
-        
-        self.help_menu = Menu(self.menu, tearoff = 0)
-        self.help_menu.add_command(label = "Help", accelerator = 'Ctrl+F1', command=self.helpmenu)
+        self.help_menu = Menu(self.menu, tearoff=0)
+        self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=self.helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
-        
         self.master.config(menu=self.menu)
         self.master.bind('<Alt-u>', lambda event: self.upload())
         self.master.bind('<Alt-t>', lambda event: self.addp())
@@ -91,9 +79,9 @@ class Registration():
         os.chdir("..")
         self.flagloadname = 0
         msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CLOSED")
-        self.file_menu.entryconfig(0, state = NORMAL)
-        self.file_menu.entryconfig(1, state = NORMAL)
-        self.file_menu.entryconfig(2, state = DISABLED)
+        self.file_menu.entryconfig(0, state=NORMAL)
+        self.file_menu.entryconfig(1, state=NORMAL)
+        self.file_menu.entryconfig(2, state=DISABLED)
     def cnamef(self):
         """ clears name text field"""
         self.textname.delete(1.0, END)
@@ -108,26 +96,26 @@ class Registration():
         if numline == 2:
             msg.showerror("Error", "No events to load")
         else:
-            event_load = sd.askstring("Load an event", "Enter the name of the event", parent = self.master)
+            event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
             while event_load == None or (not event_load.strip()):
-                event_load = sd.askstring("Load an event", "Enter the name of the event", parent = self.master)
+                event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
             for i in os.listdir():
                 if str(event_load) == i:
                     f += 1
             if f >0:
                 os.chdir(event_load)
                 self.flagloadname += 1
-                self.file_menu.entryconfig(0, state = DISABLED)
-                self.file_menu.entryconfig(1, state = DISABLED)
-                self.file_menu.entryconfig(2, state = NORMAL)
+                self.file_menu.entryconfig(0, state=DISABLED)
+                self.file_menu.entryconfig(1, state=DISABLED)
+                self.file_menu.entryconfig(2, state=NORMAL)
                 msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY LOADED")
             else:
                 msg.showerror("Error", "There is no such event try again")
     def newevent(self):
         """ new event """
-        event_name = sd.askstring("Name of the event", "Enter the name of the event",parent = self.master)
+        event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         while event_name == None or (not event_name.strip()):
-            event_name = sd.askstring("Name of the event", "Enter the name of the event",parent = self.master)
+            event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         if os.path.exists(event_name) == False:
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
@@ -139,9 +127,9 @@ class Registration():
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow(['Name', 'Surname'])
-            self.file_menu.entryconfig(0, state = DISABLED)
-            self.file_menu.entryconfig(1, state = DISABLED)
-            self.file_menu.entryconfig(2, state = NORMAL)
+            self.file_menu.entryconfig(0, state=DISABLED)
+            self.file_menu.entryconfig(1, state=DISABLED)
+            self.file_menu.entryconfig(2, state=NORMAL)
             self.flagloadname = 1
             msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CREATED")
         else:
@@ -156,7 +144,7 @@ class Registration():
             else:
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
-                    thewriter.writerow([str(self.textname.get(1.0, END)),str(self.textsurname.get(1.0, END))])
+                    thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
                 msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
                 self.textname.delete(1.0, END)
                 self.textsurname.delete(1.0, END)
@@ -178,19 +166,19 @@ class Registration():
             camera.release()
             cv2.destroyAllWindows()
     def exitmenu(self):
+        """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
-    
     def helpmenu(self):
+        """ help menu function """
         msg.showinfo("Help", "Create or Load an event add your name and surname and if you want a foto of you and press add button ")
-    
     def aboutmenu(self):
+        """ about menu function """
         msg.showinfo("About", "Registration\nVersion 1.0")
-
 def main():
+    """ main function """
     root=Tk()
     Registration(root)
     root.mainloop()
-    
-if __name__=='__main__':
+if __name__ == '__main__':
     main()
