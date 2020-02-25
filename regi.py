@@ -14,19 +14,19 @@ class Registration():
         self.master.resizable(False, False)
         # folders of the year and month
         self.this_year = datetime.datetime.now()
-        if os.path.exists(str(self.this_year.year)) == False:
+        if not os.path.exists(str(self.this_year.year)):
             os.mkdir(str(self.this_year.year))
             os.chdir(str(self.this_year.year))
         else:
             os.chdir(str(self.this_year.year))
-        if os.path.exists(str(self.this_year.month)) == False:
+        if not os.path.exists(str(self.this_year.month)):
             os.mkdir(str(self.this_year.month))
             os.chdir(str(self.this_year.month))
         else:
             os.chdir(str(self.this_year.month))
         # creation
         #file of the events of the month
-        if os.path.exists("events.csv") == False:
+        if not os.path.exists("events.csv"):
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['Name of the event'])
@@ -74,7 +74,7 @@ class Registration():
         self.master.bind('<Control-s>', lambda event: self.snamef())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
-        self.master.bind('<Control-i>', lambda event:self.aboutmenu())
+        self.master.bind('<Control-i>', lambda event: self.aboutmenu())
     def close_event(self):
         os.chdir("..")
         self.flagloadname = 0
@@ -102,7 +102,7 @@ class Registration():
             for i in os.listdir():
                 if str(event_load) == i:
                     f += 1
-            if f >0:
+            if f > 0:
                 os.chdir(event_load)
                 self.flagloadname += 1
                 self.file_menu.entryconfig(0, state=DISABLED)
@@ -116,14 +116,14 @@ class Registration():
         event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         while event_name == None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
-        if os.path.exists(event_name) == False:
+        if not os.path.exists(event_name):
             with open('events.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow([event_name])
             os.mkdir(event_name)
             os.chdir(event_name)
             #file of the guests
-            if os.path.exists("guests.csv") == False:
+            if not os.path.exists("guests.csv") :
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow(['Name', 'Surname'])
@@ -158,7 +158,7 @@ class Registration():
                 return_value, image = camera.read()
                 cv2.imshow('image', image)
                 if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
-                    cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg',image)
+                    cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
                     break
                 else:
                     msg.showerror("Error", "Enter name and surname")
@@ -177,7 +177,7 @@ class Registration():
         msg.showinfo("About", "Registration\nVersion 1.0")
 def main():
     """ main function """
-    root=Tk()
+    root = Tk()
     Registration(root)
     root.mainloop()
 if __name__ == '__main__':
