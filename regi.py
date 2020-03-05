@@ -90,19 +90,14 @@ class Registration():
         self.textsurname.delete(1.0, END)
     def loadevent(self):
         """ loads an event """
-        f = 0
         file = open("events.csv")
-        numline = len(file.readlines())
-        if numline == 2:
+        if len(file.readlines()) == 2:
             msg.showerror("Error", "No events to load")
         else:
             event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
             while event_load == None or (not event_load.strip()):
                 event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
-            for i in os.listdir():
-                if str(event_load) == i:
-                    f += 1
-            if f > 0:
+            if str(event_load) in os.listdir():
                 os.chdir(event_load)
                 self.flagloadname += 1
                 self.file_menu.entryconfig(0, state=DISABLED)
@@ -155,13 +150,10 @@ class Registration():
         else:
             camera = cv2.VideoCapture(0)
             while True:
-                return_value, image = camera.read()
+                image = camera.read()
                 cv2.imshow('image', image)
                 if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
                     cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
-                    break
-                else:
-                    msg.showerror("Error", "Enter name and surname")
                     break
             camera.release()
             cv2.destroyAllWindows()
