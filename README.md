@@ -30,6 +30,13 @@ This is a simple registration program, which is a part of a bigger problem.
 
 <p><img src ="reg.png" title = "Registration Version"/> </p>
 
+**Radon**
+
+<p><img src = "radon cc regi.png" title = "Radon cc"/> </p>
+<p><img src = "radon hal regi.png" title = "Radon hal"/> </p>
+<p><img src = "radon mi regi.png" title = "Radon mi"/> </p>
+<p><img src = "radon raw regi.png" title = "Radon raw"/> </p>
+
 ## Keybinds
 
 <ul>
