@@ -1,8 +1,22 @@
 # Registration
 
+This is a simple registration program, which is a part of a bigger problem.
+
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-This is a simple registration program, which is a part of a bigger problem.
+# Table of contents
+
+<!--ts-->
+  * [Registration](#Registration)
+  * [Table of contents](#Table_of_contents)
+  * [Dependencies](#Dependencies)
+  * [FILES](#FILES)
+  * [HOW TO USE](#HOW_TO_USE)
+  * [Current Version](#Current_Version)
+  * [Radon](#Radon)
+  * [Keybinds](#Keybinds)
+  * [License](#License)
+<!--ts-->
 
 ## Dependencies
 
@@ -21,7 +35,8 @@ This is a simple registration program, which is a part of a bigger problem.
   <li> reg.png (version file) </li>
  </ul>
 
-**HOW TO USE**
+## HOW_TO_USE
+
 <ul>
   <li> Use the New Event Submenu from the File menu to create an event or use the Load Event to load an event  </li>
   <li> Fill the name and the surname text field </li>
@@ -29,11 +44,11 @@ This is a simple registration program, which is a part of a bigger problem.
   <li> Use the Add button to add him to the event</li>
 </ul>
 
-**Current Version**
+## Current Version
 
 <p><img src ="reg.png" title = "Registration Version"/> </p>
 
-**Radon**
+## Radon
 
 <p><img src = "radon cc regi.png" title = "Radon cc"/> </p>
 <p><img src = "radon hal regi.png" title = "Radon hal"/> </p>
@@ -54,7 +69,6 @@ This is a simple registration program, which is a part of a bigger problem.
   <li> About(Ctrl+I) </li>
   <li> Help(Ctrl+F1) </li>
 </ul>
-
 
 
 ## License
