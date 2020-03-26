@@ -5,6 +5,8 @@ import os
 import csv
 import datetime
 import cv2
+import numpy as np
+import pandas as pd
 class Registration():
     """ registration class """
     def __init__(self, master):
@@ -62,7 +64,7 @@ class Registration():
         self.edit_menu.add_command(label="Clear Surname", accelerator='Ctrl+S', command=self.snamef)
         self.menu.add_cascade(label="Edit", menu=self.edit_menu)
         self.show_menu = Menu(self.menu,tearoff=0)
-        self.show_menu.add_command(label="Show members")
+        self.show_menu.add_command(label="Show members", command=self.show_members)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=self.aboutmenu)
@@ -78,6 +80,13 @@ class Registration():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
         self.master.bind('<Control-i>', lambda event: self.aboutmenu())
+    def show_members(self):
+        if self.flagloadname == 0:
+            msg.showerror("Error", "Create an event or load one")
+        else:
+            df = pd.read_csv("guests.csv")
+            msg.showinfo("Members", str(df))
+
     def close_event(self):
         os.chdir("..")
         self.flagloadname = 0
@@ -153,7 +162,8 @@ class Registration():
         else:
             camera = cv2.VideoCapture(0)
             while True:
-                image = camera.read()
+                (check, image) = camera.read()
+                cv2.rectangle(image, (100, 100), (200, 200), [255, 0, 0], 2)
                 cv2.imshow('image', image)
                 if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
                     cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
