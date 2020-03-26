@@ -163,11 +163,12 @@ class Registration():
         else:
             camera = cv2.VideoCapture(0)
             while True:
-                (check, image) = camera.read()
-                cv2.imshow('image', image)
-                if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
-                    cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
-                    break
+                check, image = camera.read()
+                if check == True:
+                    cv2.imshow('image', image)
+                    if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
+                        cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
+                        break
             camera.release()
             cv2.destroyAllWindows()
     def exitmenu(self):
