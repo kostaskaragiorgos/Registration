@@ -81,13 +81,14 @@ class Registration():
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
         self.master.bind('<Control-i>', lambda event: self.aboutmenu())
     def show_members(self):
+        """ shows the members """
         if self.flagloadname == 0:
             msg.showerror("Error", "Create an event or load one")
         else:
             df = pd.read_csv("guests.csv")
             msg.showinfo("Members", str(df))
-
     def close_event(self):
+        """ closes the event"""
         os.chdir("..")
         self.flagloadname = 0
         msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CLOSED")
