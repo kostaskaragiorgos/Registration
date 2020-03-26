@@ -2,7 +2,7 @@
 Conference videographer
 """
 
-from tkinter import Tk, Menu
+from tkinter import Tk, Menu, Button
 from tkinter import messagebox as msg
 def helpmenu():
     """ help menu funciton """
@@ -17,6 +17,8 @@ class Conference_videographer():
         self.master.resizable(False, False)
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
+        self.file_menu.add_command(label="Load Event")
+        self.file_menu.add_command(label="Close Event")
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
@@ -29,6 +31,8 @@ class Conference_videographer():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
+        self.recb = Button(self.master, text="Start Recording")
+        self.recb.pack()
     def exitmenu(self):
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
