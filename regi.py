@@ -45,8 +45,6 @@ class Registration():
         self.clearnamebutton.pack()
         self.clersurnamebutton = Button(self.master, text="Clear Surname", command=self.snamef)
         self.clersurnamebutton.pack()
-        self.inmpfoto = Button(self.master, text="Upload a foto", command=self.upload)
-        self.inmpfoto.pack()
         self.add = Button(self.master, text="Add", command=self.addp)
         self.add.pack()
         #menu
@@ -56,7 +54,6 @@ class Registration():
         self.file_menu.add_command(label="Load Event", command=self.loadevent)
         self.file_menu.add_command(label="Close Event", command=self.close_event, state=DISABLED)
         self.file_menu.add_command(label="Add Member", accelerator='Alt+T', command=self.addp)
-        self.file_menu.add_command(label="Upload a foto", accelerator='Alt+U', command=self.upload)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.edit_menu = Menu(self.menu, tearoff=0)
@@ -73,7 +70,6 @@ class Registration():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=self.helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
-        self.master.bind('<Alt-u>', lambda event: self.upload())
         self.master.bind('<Alt-t>', lambda event: self.addp())
         self.master.bind('<Control-n>', lambda event: self.cnamef())
         self.master.bind('<Control-s>', lambda event: self.snamef())
@@ -154,23 +150,18 @@ class Registration():
                     thewriter = csv.writer(f)
                     thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
                 msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
-                self.textname.delete(1.0, END)
-                self.textsurname.delete(1.0, END)
-    def upload(self): 
-        """ uploads a foto of the member"""
-        if self.flagloadname == 0:
-            msg.showerror("Error", "Create an event or load one")
-        else:
-            camera = cv2.VideoCapture(0)
-            while True:
-                check, image = camera.read()
-                if check == True:
-                    cv2.imshow('image', image)
-                    if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
-                        cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
-                        break
-            camera.release()
-            cv2.destroyAllWindows()
+                if msg.askquestion('Take picture','Do you want to take a picture'):
+                    camera = cv2.VideoCapture(0)
+                    while True:
+                        check, image = camera.read()
+                        cv2.imshow('image', image)
+                        if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
+                            cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
+                            break
+                    camera.release()
+                    cv2.destroyAllWindows()
+            self.textname.delete(1.0, END)
+            self.textsurname.delete(1.0, END)
     def exitmenu(self):
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
