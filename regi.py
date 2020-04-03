@@ -61,7 +61,7 @@ class Registration():
         self.edit_menu.add_command(label="Clear Surname", accelerator='Ctrl+S', command=self.snamef)
         self.menu.add_cascade(label="Edit", menu=self.edit_menu)
         self.show_menu = Menu(self.menu,tearoff=0)
-        self.show_menu.add_command(label="Show members", command=self.show_members)
+        self.show_menu.add_command(label="Show members",accelerator='Ctrl+T', command=self.show_members)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=self.aboutmenu)
@@ -76,12 +76,14 @@ class Registration():
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: self.helpmenu())
         self.master.bind('<Control-i>', lambda event: self.aboutmenu())
+        self.master.bind('<Control-t>', lambda event: self.show_members())
     def show_members(self):
         """ shows the members """
         if self.flagloadname == 0:
             msg.showerror("Error", "Create an event or load one")
         else:
             df = pd.read_csv("guests.csv")
+            df = df.replace(r'\r\n','', regex=True)
             msg.showinfo("Members", str(df))
     def close_event(self):
         """ closes the event"""
