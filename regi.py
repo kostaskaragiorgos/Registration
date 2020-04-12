@@ -83,7 +83,7 @@ class Registration():
             msg.showerror("Error", "Create an event or load one")
         else:
             df = pd.read_csv("guests.csv")
-            df = df.replace(r'\r\n','', regex=True)
+            df.replace(r'\r\n', '', regex=True, inplace=True)
             msg.showinfo("Members", str(df))
     def close_event(self):
         """ closes the event"""
