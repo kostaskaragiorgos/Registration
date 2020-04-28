@@ -140,6 +140,17 @@ class Registration():
             msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CREATED")
         else:
             msg.showerror("Error", "This event already exists")
+    def takepicture(self):
+        camera = cv2.VideoCapture(0)
+        while True:
+            check, image = camera.read()
+            cv2.imshow('image', image)
+            if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
+                cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
+                break
+            camera.release()
+            cv2.destroyAllWindows()
+
     def addp(self):
         """ adds an event member""" 
         if self.flagloadname == 0:
@@ -153,15 +164,7 @@ class Registration():
                     thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
                 msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
                 if msg.askokcancel('Take picture','Do you want to take a picture'):
-                    camera = cv2.VideoCapture(0)
-                    while True:
-                        check, image = camera.read()
-                        cv2.imshow('image', image)
-                        if cv2.waitKey(1) & 0xFF == ord('s') and (self.textname.count(1.0, END) != (1, ) or self.textsurname.count(1.0, END) != (1, )):
-                            cv2.imwrite(str(self.textname.get(1.0, END))+str(self.textsurname.get(1.0, END))+'.jpg', image)
-                            break
-                    camera.release()
-                    cv2.destroyAllWindows()
+                    self.takepicture()
             self.textname.delete(1.0, END)
             self.textsurname.delete(1.0, END)
     def exitmenu(self):
