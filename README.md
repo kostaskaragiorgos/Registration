@@ -50,9 +50,20 @@ This is a simple registration program, which is a part of a bigger problem.
 
 ## Radon
 
+### Radon_cc
+
 <p><img src = "images/radon cc regi.png" title = "Radon cc"/> </p>
+
+### Radon_hal
+
 <p><img src = "images/radon hal regi.png" title = "Radon hal"/> </p>
+
+### Radon_mi
+
 <p><img src = "images/radon mi regi.png" title = "Radon mi"/> </p>
+
+### Radon_raw
+
 <p><img src = "images/radon raw regi.png" title = "Radon raw"/> </p>
 
 ## Keybinds
