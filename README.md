@@ -14,6 +14,10 @@ This is a simple registration program, which is a part of a bigger problem.
   * [HOW TO USE](#HOW_TO_USE)
   * [Current Version](#Current_Version)
   * [Radon](#Radon)
+    * [Radon_cc](#Radon_cc)
+    * [Radon_hal](#Radon_hal)
+    * [Radon_mi](#Radon_mi)
+    * [Radon_raw](#Radon_raw)
   * [Keybinds](#Keybinds)
   * [License](#License)
 <!--ts-->
@@ -32,7 +36,7 @@ This is a simple registration program, which is a part of a bigger problem.
 <ul>
   <li> regi.py(the main file)</li>
   <li> Registration keybinds(keybinds file) </li>
-  <li> reg.png (version file) </li>
+  <li> images (images folder) </li>
  </ul>
 
 ## HOW_TO_USE
