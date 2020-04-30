@@ -117,6 +117,7 @@ class Registration():
                 msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY LOADED")
             else:
                 msg.showerror("Error", "There is no such event try again")
+        file.close()
     def newevent(self):
         """ new event """
         event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
@@ -150,6 +151,12 @@ class Registration():
                 break
             camera.release()
             cv2.destroyAllWindows()
+    
+    def save_guests(self):
+        with open('guests.csv', 'a+') as f:
+            thewriter = csv.writer(f)
+            thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
+        msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
 
     def addp(self):
         """ adds an event member""" 
@@ -159,10 +166,7 @@ class Registration():
             if self.textname.count(1.0, END) == (1, ) or self.textsurname.count(1.0, END) == (1, ):
                 msg.showerror("Error", "You have to add both name and surname")
             else:
-                with open('guests.csv', 'a+') as f:
-                    thewriter = csv.writer(f)
-                    thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
-                msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
+                self.save_guests()
                 if msg.askokcancel('Take picture','Do you want to take a picture'):
                     self.takepicture()
             self.textname.delete(1.0, END)
