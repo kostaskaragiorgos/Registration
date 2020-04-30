@@ -5,7 +5,6 @@ import os
 import csv
 import datetime
 import cv2
-import numpy as np
 import pandas as pd
 class Registration():
     """ registration class """
@@ -60,7 +59,7 @@ class Registration():
         self.edit_menu.add_command(label="Clear Name", accelerator='Ctrl+N', command=self.cnamef)
         self.edit_menu.add_command(label="Clear Surname", accelerator='Ctrl+S', command=self.snamef)
         self.menu.add_cascade(label="Edit", menu=self.edit_menu)
-        self.show_menu = Menu(self.menu,tearoff=0)
+        self.show_menu = Menu(self.menu, tearoff=0)
         self.show_menu.add_command(label="Show members",accelerator='Ctrl+T', command=self.show_members)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
@@ -130,7 +129,7 @@ class Registration():
             os.mkdir(event_name)
             os.chdir(event_name)
             #file of the guests
-            if not os.path.exists("guests.csv") :
+            if not os.path.exists("guests.csv"):
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow(['Name', 'Surname'])
@@ -167,7 +166,7 @@ class Registration():
                 msg.showerror("Error", "You have to add both name and surname")
             else:
                 self.save_guests()
-                if msg.askokcancel('Take picture','Do you want to take a picture'):
+                if msg.askokcancel('Take picture', 'Do you want to take a picture'):
                     self.takepicture()
             self.textname.delete(1.0, END)
             self.textsurname.delete(1.0, END)
