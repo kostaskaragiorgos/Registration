@@ -117,15 +117,20 @@ class Registration():
             else:
                 msg.showerror("Error", "There is no such event try again")
         file.close()
-    def newevent(self):
-        """ new event """
+    def savetoevents(self, event_name):
+        with open('events.csv', 'a+') as f:
+            thewriter = csv.writer(f)
+            thewriter.writerow([event_name])
+    def neweventuserinput(self):
         event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         while event_name == None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
+        return event_name
+    def newevent(self):
+        """ new event """
+        event_name = self.neweventuserinput()
         if not os.path.exists(event_name):
-            with open('events.csv', 'a+') as f:
-                thewriter = csv.writer(f)
-                thewriter.writerow([event_name])
+            self.savetoevents(event_name)
             os.mkdir(event_name)
             os.chdir(event_name)
             #file of the guests
