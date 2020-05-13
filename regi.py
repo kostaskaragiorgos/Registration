@@ -98,15 +98,18 @@ class Registration():
     def snamef(self):
         """ clears surname text field"""
         self.textsurname.delete(1.0, END)
+    def loadeventuserinput(self):
+        event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
+        while event_load == None or (not event_load.strip()):
+            event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
+        return event_load
     def loadevent(self):
         """ loads an event """
         file = open("events.csv")
         if len(file.readlines()) == 2:
             msg.showerror("Error", "No events to load")
         else:
-            event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
-            while event_load == None or (not event_load.strip()):
-                event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
+            event_load = self.loadeventuserinput()
             if str(event_load) in os.listdir():
                 os.chdir(event_load)
                 self.flagloadname += 1
