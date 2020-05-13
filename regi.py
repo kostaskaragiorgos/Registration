@@ -162,14 +162,14 @@ class Registration():
         if self.flagloadname == 0:
             msg.showerror("Error", "Create an event or load one")
         else:
-            if self.textname.count(1.0, END) == (1, ) or self.textsurname.count(1.0, END) == (1, ):
-                msg.showerror("Error", "You have to add both name and surname")
+            if self.textname.count(1.0, END) == (1, ):
+                msg.showerror("Error", "You have to add  name")
             else:
                 self.save_guests()
                 if msg.askokcancel('Take picture', 'Do you want to take a picture'):
                     self.takepicture()
-            self.textname.delete(1.0, END)
-            self.textsurname.delete(1.0, END)
+            self.snamef()
+            self.cnamef()
     def exitmenu(self):
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
