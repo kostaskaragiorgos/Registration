@@ -103,6 +103,11 @@ class Registration():
         while event_load == None or (not event_load.strip()):
             event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
         return event_load
+    def b_m_state_change(self):
+        self.flagloadname += 1
+        self.file_menu.entryconfig(0, state=DISABLED)
+        self.file_menu.entryconfig(1, state=DISABLED)
+        self.file_menu.entryconfig(2, state=NORMAL)
     def loadevent(self):
         """ loads an event """
         file = open("events.csv")
@@ -112,10 +117,7 @@ class Registration():
             event_load = self.loadeventuserinput()
             if str(event_load) in os.listdir():
                 os.chdir(event_load)
-                self.flagloadname += 1
-                self.file_menu.entryconfig(0, state=DISABLED)
-                self.file_menu.entryconfig(1, state=DISABLED)
-                self.file_menu.entryconfig(2, state=NORMAL)
+                self.b_m_state_change()
                 msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY LOADED")
             else:
                 msg.showerror("Error", "There is no such event try again")
@@ -141,10 +143,7 @@ class Registration():
                 with open('guests.csv', 'a+') as f:
                     thewriter = csv.writer(f)
                     thewriter.writerow(['Name', 'Surname'])
-            self.file_menu.entryconfig(0, state=DISABLED)
-            self.file_menu.entryconfig(1, state=DISABLED)
-            self.file_menu.entryconfig(2, state=NORMAL)
-            self.flagloadname = 1
+            self.b_m_state_change()
             msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CREATED")
         else:
             msg.showerror("Error", "This event already exists")
