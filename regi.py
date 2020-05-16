@@ -1,3 +1,4 @@
+""" conf registration main file """
 from tkinter import Menu, Text, Label, END, DISABLED, NORMAL, Tk, Button
 from tkinter import messagebox as msg
 from tkinter import simpledialog as sd
@@ -6,6 +7,12 @@ import csv
 import datetime
 import cv2
 import pandas as pd
+def helpmenu():
+    """ help menu function """
+    msg.showinfo("Help", "Create or Load an event add your name and surname and if you want a foto of you and press add button ")
+def aboutmenu():
+    """ about menu function """
+    msg.showinfo("About", "Registration\nVersion 1.0")
 class Registration():
     """ registration class """
     def __init__(self, master):
@@ -60,21 +67,21 @@ class Registration():
         self.edit_menu.add_command(label="Clear Surname", accelerator='Ctrl+S', command=self.snamef)
         self.menu.add_cascade(label="Edit", menu=self.edit_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
-        self.show_menu.add_command(label="Show members",accelerator='Ctrl+T', command=self.show_members)
+        self.show_menu.add_command(label="Show members", accelerator='Ctrl+T', command=self.show_members)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
-        self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=self.aboutmenu)
+        self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
         self.menu.add_cascade(label="About", menu=self.about_menu)
         self.help_menu = Menu(self.menu, tearoff=0)
-        self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=self.helpmenu)
+        self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
         self.master.bind('<Alt-t>', lambda event: self.addp())
         self.master.bind('<Control-n>', lambda event: self.cnamef())
         self.master.bind('<Control-s>', lambda event: self.snamef())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
-        self.master.bind('<Control-F1>', lambda event: self.helpmenu())
-        self.master.bind('<Control-i>', lambda event: self.aboutmenu())
+        self.master.bind('<Control-F1>', lambda event: helpmenu())
+        self.master.bind('<Control-i>', lambda event: aboutmenu())
         self.master.bind('<Control-t>', lambda event: self.show_members())
     def show_members(self):
         """ shows the members """
@@ -99,8 +106,9 @@ class Registration():
         """ clears surname text field"""
         self.textsurname.delete(1.0, END)
     def loadeventuserinput(self):
+        """ load event menu user input"""
         event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
-        while event_load == None or (not event_load.strip()):
+        while event_load is None or (not event_load.strip()):
             event_load = sd.askstring("Load an event", "Enter the name of the event", parent=self.master)
         return event_load
     def b_m_state_change(self):
@@ -181,12 +189,6 @@ class Registration():
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
-    def helpmenu(self):
-        """ help menu function """
-        msg.showinfo("Help", "Create or Load an event add your name and surname and if you want a foto of you and press add button ")
-    def aboutmenu(self):
-        """ about menu function """
-        msg.showinfo("About", "Registration\nVersion 1.0")
 def main():
     """ main function """
     root = Tk()
