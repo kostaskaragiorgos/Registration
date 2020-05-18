@@ -7,6 +7,10 @@ import csv
 import datetime
 import cv2
 import pandas as pd
+def guestsfilecreation():
+    with open('guests.csv', 'a+') as f:
+        thewriter = csv.writer(f)
+        thewriter.writerow(['Name', 'Surname'])
 def savetoevents(event_name):
     with open('events.csv', 'a+') as f:
         thewriter = csv.writer(f)
@@ -139,6 +143,7 @@ class Registration():
         while event_name == None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         return event_name
+
     def newevent(self):
         """ new event """
         event_name = self.neweventuserinput()
@@ -148,9 +153,7 @@ class Registration():
             os.chdir(event_name)
             #file of the guests
             if not os.path.exists("guests.csv"):
-                with open('guests.csv', 'a+') as f:
-                    thewriter = csv.writer(f)
-                    thewriter.writerow(['Name', 'Surname'])
+                guestsfilecreation()
             self.b_m_state_change()
             msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CREATED")
         else:
