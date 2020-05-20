@@ -21,6 +21,11 @@ def helpmenu():
 def aboutmenu():
     """ about menu function """
     msg.showinfo("About", "Registration\nVersion 1.0")
+def foldercreation(filename):
+    if not os.path.exists(filename):
+        os.mkdir(filename)
+    os.chdir(filename)
+
 class Registration():
     """ registration class """
     def __init__(self, master):
@@ -30,16 +35,8 @@ class Registration():
         self.master.resizable(False, False)
         # folders of the year and month
         self.this_year = datetime.datetime.now()
-        if not os.path.exists(str(self.this_year.year)):
-            os.mkdir(str(self.this_year.year))
-            os.chdir(str(self.this_year.year))
-        else:
-            os.chdir(str(self.this_year.year))
-        if not os.path.exists(str(self.this_year.month)):
-            os.mkdir(str(self.this_year.month))
-            os.chdir(str(self.this_year.month))
-        else:
-            os.chdir(str(self.this_year.month))
+        foldercreation(str(self.this_year.year))
+        foldercreation(str(self.this_year.month))
         # creation
         #file of the events of the month
         if not os.path.exists("events.csv"):
