@@ -144,13 +144,10 @@ class Registration():
     def newevent(self):
         """ new event """
         event_name = self.neweventuserinput()
-        if not os.path.exists(event_name):
-            savetoevents(event_name)
-            os.mkdir(event_name)
-            os.chdir(event_name)
-            #file of the guests
-            if not os.path.exists("guests.csv"):
-                guestsfilecreation()
+        foldercreation(event_name)
+        #file of the guests
+        if not os.path.exists("guests.csv"):
+            guestsfilecreation()
             self.b_m_state_change()
             msg.showinfo("SUCCESS", "EVENT SUCCESSFULLY CREATED")
         else:
