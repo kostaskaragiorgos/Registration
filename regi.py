@@ -8,10 +8,12 @@ import datetime
 import cv2
 import pandas as pd
 def guestsfilecreation():
+    """ creates a guests csv file """
     with open('guests.csv', 'a+') as f:
         thewriter = csv.writer(f)
         thewriter.writerow(['Name', 'Surname'])
 def savetoevents(event_name):
+    """ creates an events csv file """
     with open('events.csv', 'a+') as f:
         thewriter = csv.writer(f)
         thewriter.writerow([event_name])
@@ -22,6 +24,7 @@ def aboutmenu():
     """ about menu function """
     msg.showinfo("About", "Registration\nVersion 1.0")
 def foldercreation(filename):
+    """ creates a directory and sets it the current """
     if not os.path.exists(filename):
         os.mkdir(filename)
     os.chdir(filename)
@@ -137,7 +140,7 @@ class Registration():
         file.close()
     def neweventuserinput(self):
         event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
-        while event_name == None or (not event_name.strip()):
+        while event_name is None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         return event_name
 
