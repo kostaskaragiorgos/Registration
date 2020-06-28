@@ -139,6 +139,7 @@ class Registration():
                 msg.showerror("Error", "There is no such event try again")
         file.close()
     def neweventuserinput(self):
+        """ User enters the name of the new event"""
         event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
         while event_name is None or (not event_name.strip()):
             event_name = sd.askstring("Name of the event", "Enter the name of the event", parent=self.master)
@@ -156,6 +157,7 @@ class Registration():
         else:
             msg.showerror("Error", "This event already exists")
     def takepicture(self):
+        """ takes a picture of a guest """
         camera = cv2.VideoCapture(0)
         while True:
             check, image = camera.read()
@@ -167,6 +169,7 @@ class Registration():
             cv2.destroyAllWindows()
     
     def save_guests(self):
+        """ saves the name and the surname of a guest """
         with open('guests.csv', 'a+') as f:
             thewriter = csv.writer(f)
             thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
