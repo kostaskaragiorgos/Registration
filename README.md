@@ -24,12 +24,21 @@ This is a simple registration program, which is a part of a bigger problem.
 
 ## Dependencies
 
+Install the dependencies
+
 <ul>
   <li> csv (conda install -c anaconda csvkit) </li>
   <li> second way to install csv ( pip install python-csv) </li>
   <li> open cv (conda install -c conda-forge opencv) </li>
   <li> second way to install open cv ( pip install opencv-contrib-python-headless) </li>
 </ul>
+
+or run
+
+
+```shell
+pip install -r requirements.txt
+```
 
 ## FILES
 
