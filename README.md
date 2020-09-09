@@ -10,9 +10,9 @@ This is a simple registration program, which is a part of a bigger problem.
   * [Registration](#Registration)
   * [Table of contents](#Table_of_contents)
   * [Dependencies](#Dependencies)
-  * [FILES](#FILES)
-  * [HOW TO USE](#HOW_TO_USE)
+  * [Files](#Files)
   * [Current Version](#Current_Version)
+  * [Documentation](#Documentation)
   * [Radon](#Radon)
     * [Radon_cc](#Radon_cc)
     * [Radon_hal](#Radon_hal)
@@ -40,7 +40,7 @@ or run
 pip install -r requirements.txt
 ```
 
-## FILES
+## Files
 
 <ul>
   <li> regi.py(the main file)</li>
@@ -48,18 +48,14 @@ pip install -r requirements.txt
   <li> images (images folder) </li>
  </ul>
 
-## HOW_TO_USE
-
-<ul>
-  <li> Use the New Event Submenu from the File menu to create an event or use the Load Event to load an event  </li>
-  <li> Fill the name and the surname text field </li>
-  <li> If you want you can upload a picture of yourself using Upload a foto button</li>
-  <li> Use the Add button to add him to the event</li>
-</ul>
 
 ## Current Version
 
 <p><img src ="images/reg.png" title = "Registration Version"/> </p>
+
+## Documentation
+
+All project documentation is located in the `./doc`  folder.
 
 ## Radon
 
