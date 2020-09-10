@@ -18,6 +18,12 @@ You press ok to close the app or cancel if you don't want
 
 # Edit menu
 
+## Clear Name
+
+You can clear the name text field by using Edit --> Clear Name or using Ctrl + n keybind
+
+<p><img src="doc images/edit/clear name menu.png" title="clear name"/></p>
+
 
 # Show menu
 
