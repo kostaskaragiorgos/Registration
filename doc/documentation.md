@@ -20,6 +20,12 @@ else a success message pops up
 
 <p><img src="doc images/file/success creation.png" title="Success creation"/></p>
 
+## Load Event
+
+You can load an event by using menu File --> Load Event
+
+<p><img src ="doc images/file/load event menu.png" title="load event menu"/> </p>
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
