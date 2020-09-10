@@ -11,7 +11,7 @@ def guestsfilecreation():
     """ creates a guests csv file """
     with open('guests.csv', 'a+') as f:
         thewriter = csv.writer(f)
-        thewriter.writerow(['Name', 'Surname'])
+        thewriter.writerow(['Name', 'Surname', 'Available photo'])
 def savetoevents(event_name):
     """ creates an events csv file """
     with open('events.csv', 'a+') as f:
@@ -36,6 +36,7 @@ class Registration():
         self.master.title("Registration")
         self.master.geometry("250x200")
         self.master.resizable(False, False)
+        self.avphoto = 'NO'
         # folders of the year and month
         self.this_year = datetime.datetime.now()
         foldercreation(str(self.this_year.year))
@@ -172,7 +173,7 @@ class Registration():
         """ saves the name and the surname of a guest """
         with open('guests.csv', 'a+') as f:
             thewriter = csv.writer(f)
-            thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END))])
+            thewriter.writerow([str(self.textname.get(1.0, END)), str(self.textsurname.get(1.0, END)), self.avphoto])
         msg.showinfo("INFO", "Name:"+str(self.textname.get(1.0, END))+"Surname:"+str(self.textsurname.get(1.0, END)))
 
     def addp(self):
@@ -186,6 +187,7 @@ class Registration():
                 self.save_guests()
                 if msg.askokcancel('Take picture', 'Do you want to take a picture'):
                     self.takepicture()
+                    self.avphoto = 'YES'
             self.snamef()
             self.cnamef()
     def exitmenu(self):
