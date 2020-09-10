@@ -34,7 +34,9 @@ if the name of the event not exists an error message pops up
 
 <p><img src="doc images/file/no such event.png" title="no events to load"/></p>
 
+else a success message pops up
 
+<p><img src="doc images/file/success load.png" title="success"/></p>
 
 ## Exit
 
