@@ -42,6 +42,8 @@ else a success message pops up
 
 You can close an event by using File --> Close Event but if there is no event open this key is disabled
 
+<p><img src="doc images/file/close event menu.png" title="close event menu"/></p>
+
 
 
 ## Exit
