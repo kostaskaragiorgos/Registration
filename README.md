@@ -46,6 +46,7 @@ pip install -r requirements.txt
   <li> regi.py(the main file)</li>
   <li> Registration keybinds(keybinds file) </li>
   <li> images (images folder) </li>
+  <li> doc (documentation folder) </li>
  </ul>
 
 
