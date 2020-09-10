@@ -6,12 +6,17 @@
 
 You can create a new event by using menu File --> New Event
 
+<p><img src="doc images/file/new event menu.png" title="New event"/></p>
+
+A Text field window pops up 
+
+<p><img src="doc images/file/create event.png" title="Create event"/></p>
 
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
 
-<p><img src = "doc images/file/exit menu.png" title="Close app">
+<p><img src = "doc images/file/exit menu.png" title="Close app"/></p>
 
 An informative message pops up
 
