@@ -128,7 +128,7 @@ class Registration():
     def loadevent(self):
         """ loads an event """
         file = open("events.csv")
-        if len(file.readlines()) == 2:
+        if len(file.readlines()) < 2:
             msg.showerror("Error", "No events to load")
         else:
             event_load = self.loadeventuserinput()
@@ -149,6 +149,7 @@ class Registration():
     def newevent(self):
         """ new event """
         event_name = self.neweventuserinput()
+        savetoevents(event_name)
         foldercreation(event_name)
         #file of the guests
         if not os.path.exists("guests.csv"):

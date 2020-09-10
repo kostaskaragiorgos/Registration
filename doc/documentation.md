@@ -26,6 +26,16 @@ You can load an event by using menu File --> Load Event
 
 <p><img src ="doc images/file/load event menu.png" title="load event menu"/> </p>
 
+if there are no events to load an error message pops up
+
+<p><img src="doc images/file/no events to load.png" title="no events to load"/></p>
+
+if the name of the event not exists an error message pops up
+
+<p><img src="doc images/file/no such event.png" title="no events to load"/></p>
+
+
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
