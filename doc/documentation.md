@@ -12,6 +12,14 @@ A Text field window pops up
 
 <p><img src="doc images/file/create event.png" title="Create event"/></p>
 
+if the event exists an error message pops up
+
+<p><img src="doc images/file/event create error.png" title="Create event error"/></p>
+
+else a success message pops up
+
+<p><img src="doc images/file/success creation.png" title="Success creation"/></p>
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
