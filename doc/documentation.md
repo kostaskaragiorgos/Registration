@@ -52,6 +52,10 @@ You can add a member to an event by using File --> Add Member or using Alt + t k
 
 <p><img src="doc images/file/add member.png" title="Add member"/></p>
 
+if there is no new event or loaded an error message pops up
+
+<p><img src="doc images/file/createorload.png" title="Create or load"/></p>
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
