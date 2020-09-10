@@ -25,7 +25,11 @@ You press ok to close the app or cancel if you don't want
 
 You can show info about the members of an event by using Show --> Show members or using Ctrl + t keybind
 
-<p><img src="doc images/show/show members menu.png" title show members/></p>
+<p><img src="doc images/show/show members menu.png" title="show members"/></p>
+
+if there is no event an error message pops up
+
+<p><img src="doc images/show/show members error.png" title="show members error"/></p>
 
 # About menu
 
