@@ -21,7 +21,11 @@ You press ok to close the app or cancel if you don't want
 
 # Show menu
 
+## Show members
 
+You can show info about the members of an event by using Show --> Show members or using Ctrl + t keybind
+
+<p><img src="doc images/show/show members menu.png" title show members/></p>
 
 # About menu
 
