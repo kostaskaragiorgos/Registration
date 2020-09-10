@@ -31,6 +31,10 @@ if there is no event an error message pops up
 
 <p><img src="doc images/show/show members error.png" title="show members error"/></p>
 
+else an informative message pops up
+
+<p><img src="doc images/show/show members.png" title="show members"/></p>
+
 # About menu
 
 You can show info about the app by using menu About --> About or using Ctrl+i keybind
