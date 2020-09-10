@@ -44,7 +44,7 @@ You can close an event by using File --> Close Event but if there is no event op
 
 <p><img src="doc images/file/close event menu.png" title="close event menu"/></p>
 
-
+<p><img src="doc images/file/close success.png" title="close event"/></p>
 
 ## Exit
 
