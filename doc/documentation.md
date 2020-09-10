@@ -24,6 +24,11 @@ You can clear the name text field by using Edit --> Clear Name or using Ctrl + n
 
 <p><img src="doc images/edit/clear name menu.png" title="clear name"/></p>
 
+## Clear Surname
+
+You can clear the surname text field by using Edit --> Clear Surname or using Ctrl + s keybind
+
+<p><img src="doc images/edit/clear surname menu.png" title="clear surname"/></p>
 
 # Show menu
 
