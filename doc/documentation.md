@@ -46,6 +46,12 @@ You can close an event by using File --> Close Event but if there is no event op
 
 <p><img src="doc images/file/close success.png" title="close event"/></p>
 
+## Add Member
+
+You can add a member to an event by using File --> Add Member or using Alt + t keybind
+
+<p><img src="doc images/file/add member.png" title="Add member"/></p>
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
