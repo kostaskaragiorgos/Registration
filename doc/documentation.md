@@ -38,6 +38,12 @@ else a success message pops up
 
 <p><img src="doc images/file/success load.png" title="success"/></p>
 
+## Close Event
+
+You can close an event by using File --> Close Event but if there is no event open this key is disabled
+
+
+
 ## Exit
 
 You can close the app by using menu File --> Exit or using Alt+F4 keybind
