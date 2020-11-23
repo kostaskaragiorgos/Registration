@@ -87,6 +87,7 @@ All project documentation is located in the `./doc`  folder.
   <li> Exit(Alt+F4) </li>
   <li> Clear Name (Ctrl + N) </li>
   <li> Clear Surname (Ctrl + S) </li>
+  <li> Show member (Ctrl + T) </li>
   <li> About(Ctrl+I) </li>
   <li> Help(Ctrl+F1) </li>
 </ul>
