@@ -10,8 +10,12 @@ Exit Alt + F4
 Edit
 ===================
 Clear name Ctrl + N
-Clear Surname Ctrl + S 
+Clear Surname Ctrl + S
 ======================
+Show
+=====================
+Show member Ctrl + T
+=====================
 About menu
 ==============
 About Ctrl + I
